@@ -1,12 +1,19 @@
 #include "stdafx.h"
 #include "BrandonOwnedStates.h"
 
+EnterLivingRoomAndCode * EnterLivingRoomAndCode::Instance()
+{
+	return nullptr;
+}
 
-BrandonOwnedStates::BrandonOwnedStates()
+void EnterLivingRoomAndCode::Enter(Brandon * brandon)
 {
 }
 
+void EnterLivingRoomAndCode::Execute(Brandon * brandon)
+{
+}
 
-BrandonOwnedStates::~BrandonOwnedStates()
+void EnterLivingRoomAndCode::Exit(Brandon * brandon)
 {
 }

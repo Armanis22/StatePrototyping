@@ -50,13 +50,13 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="StateProto.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Brandon.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="BrandonOwnedStates.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

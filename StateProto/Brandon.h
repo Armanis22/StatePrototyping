@@ -9,16 +9,18 @@ class Brandon :
 	public BaseObject
 { 
 public:
-	Brandon() :
-		m_location(LIVINGROOM),
-		m_thirst(0),
-		m_bladder(0),
-		m_coding(0)
+	Brandon() : m_location(BATHROOM),
+				m_thirst(0),
+				m_bladder(0),
+				m_coding(0)
 	{
-
+		//instantiate state machine with this brandon obj
+		m_pStateMachine = new StateMachine(this);
+		//set the starting state in the statemachine
 	}
 
 	//update method called everyframe to call the current state and its execute method
+	//probably the only thing in the CPP but i shouldnt just plop everything here
 	void Update();
 
 	//getters and setters along with incrementers for bladder and thirst
