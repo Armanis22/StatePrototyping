@@ -1,6 +1,6 @@
 #pragma once
 
 //when reached object must go to kitchen
-const int		maxHunger;
+const int		MaxThirst = 0;
 // bathroom breaj at this level
-const int		maxBladder;
+const int		MaxBladder = 0;

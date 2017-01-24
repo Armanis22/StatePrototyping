@@ -36,12 +36,27 @@
     <ClInclude Include="Locations.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Brandon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StateMachine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BrandonOwnedStates.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="StateProto.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Brandon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BrandonOwnedStates.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
