@@ -9,7 +9,7 @@ class StateMachine
 
 private:
 	//set owner of the instantiated state machine
-	BaseObject* m_pOwner;
+	Brandon* m_pOwner;
 	//set current state
 	State* m_pCurrentState;
 	// hold a pointer to the last state for a psuedo-stack
@@ -17,7 +17,7 @@ private:
 	
 public:
 
-	StateMachine(BaseObject* owner) :m_pOwner(owner),
+	StateMachine(Brandon* owner) :m_pOwner(owner),
 									 m_pCurrentState(nullptr),
 									 m_pPreviousState(nullptr)
 	{}

@@ -9,7 +9,7 @@ class Brandon;
 //he will then go to the bathroom or the kitchen as needed
 class EnterLivingRoomAndCode : public State
 {
-	EnterLivingRoomAndCode() {};
+	EnterLivingRoomAndCode() {}
 
 public:
 	//singleton instance
