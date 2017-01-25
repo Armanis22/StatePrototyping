@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "BrandonOwnedStates.h"
+#include "Brandon.h"
 
 EnterLivingRoomAndCode* EnterLivingRoomAndCode::Instance()
 {
@@ -9,17 +10,31 @@ EnterLivingRoomAndCode* EnterLivingRoomAndCode::Instance()
 
 void EnterLivingRoomAndCode::Enter(Brandon * brandon)
 {
-	printf("enter\n");
+	if (!brandon->GetLocation() != LIVINGROOM)
+	{
+		printf("Brandon: This code isnt going to write itself\n");
+		brandon->SetLocation(LIVINGROOM);
+	}
 }
 
 void EnterLivingRoomAndCode::Execute(Brandon * brandon)
 {
-	printf("execute\n");
+	brandon->IncreaseCoding();
+	brandon->IncreaseThirst();
+	
+	printf("Brandon: code... code... fucking error!!!... fixed!... code\n");
+	
+
+	if (brandon->NeedDrink())
+	{
+		brandon->GetFSM()->ChangeState(QuenchThirst::Instance());
+	}
+
 }
 
 void EnterLivingRoomAndCode::Exit(Brandon * brandon)
 {
-	printf("exit\n");
+	printf("Brandon: gotta take a short break\n");
 }
 
 QuenchThirst * QuenchThirst::Instance()
@@ -30,17 +45,30 @@ QuenchThirst * QuenchThirst::Instance()
 
 void QuenchThirst::Enter(Brandon * brandon)
 {
-	printf("enter\n");
+	if (!brandon->GetLocation() != KITCHEN)
+	{
+		printf("Brandon: Natty Daddy time!\n");
+		brandon->SetLocation(KITCHEN);
+	}
 }
 
 void QuenchThirst::Execute(Brandon * brandon)
 {
-	printf("execute\n");
+	brandon->EnterKitchenAndDrink();
+	printf("Brandon: glug... glug... glug...\n");
+	if (brandon->BladderFull())
+	{
+		brandon->GetFSM()->ChangeState(VisitBathroom::Instance());
+	}
+	else if (brandon->GetThirst() == 0)
+	{
+		brandon->GetFSM()->ChangeState(EnterLivingRoomAndCode::Instance());
+	}
 }
 
 void QuenchThirst::Exit(Brandon * brandon)
 {
-	printf("exit\n");
+	printf("Brandon: mmmmmmmmm beeer\n");
 }
 
 VisitBathroom * VisitBathroom::Instance()
@@ -51,15 +79,24 @@ VisitBathroom * VisitBathroom::Instance()
 
 void VisitBathroom::Enter(Brandon * brandon)
 {
-	printf("enter\n");
+	if (brandon->GetLocation() != BATHROOM)
+	{
+		printf("Brandon: man I gotta piss...\n");
+		brandon->SetLocation(BATHROOM);
+	}
 }
 
 void VisitBathroom::Execute(Brandon * brandon)
 {
-	printf("pissin\n");
+	if (brandon->BladderFull())
+	{
+		printf("Brandon: AHHH relief.\n");
+		brandon->EmptyBladder();
+		brandon->GetFSM()->ChangeState(EnterLivingRoomAndCode::Instance());
+	}
 }
 
 void VisitBathroom::Exit(Brandon * brandon)
 {
-	printf("exit\n");
+	printf("Brandon: Time to get back to work!\n");
 }

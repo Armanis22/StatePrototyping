@@ -18,7 +18,7 @@ public:
 		//instantiate state machine with this brandon obj
 		m_pStateMachine = new StateMachine(this);
 		//set the starting state in the statemachine
-		m_pStateMachine->SetCurrentState(VisitBathroom::Instance());
+		m_pStateMachine->SetCurrentState(EnterLivingRoomAndCode::Instance());
 	}
 
 	//update method called everyframe to call the current state and its execute method
@@ -26,9 +26,10 @@ public:
 	void Update();
 
 	//getters and setters along with incrementers for bladder and thirst
-	int			GetBladder() { return m_bladder; }
+	int			GetBladder() const { return m_bladder; }
 	void		IncreaseBladder() { m_bladder++; }
-	bool		BladderFull() { return m_bladder >= MaxBladder; }
+	bool		BladderFull() const { return m_bladder >= MaxBladder; }
+	void		EmptyBladder() { m_bladder = 0; }
 
 	int			GetThirst() { return m_thirst; }
 	void		IncreaseThirst() { m_thirst++; }

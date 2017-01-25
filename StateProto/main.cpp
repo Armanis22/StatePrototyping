@@ -11,11 +11,13 @@ int main()
 
 	Brandon brandon;
 
-	for (int i = 0; i < 3; ++i)
+	for (int i = 0; i < 10; ++i)
 	{
 		brandon.Update();
-		Sleep(400);
+		Sleep(1000);
 	}
+
+	printf("Press any key to exit...\n");
 	while (!_kbhit()){}
 
 	return 0;
