@@ -18,9 +18,16 @@ private:
 public:
 
 	StateMachine(Brandon* owner) :m_pOwner(owner),
-									 m_pCurrentState(nullptr),
-									 m_pPreviousState(nullptr)
+								  m_pCurrentState(nullptr),
+								  m_pPreviousState(nullptr)
 	{}
+
+	virtual ~StateMachine() {}
+
+	//used for initialization and for hard state sets
+	void SetCurrentState(State* s) { m_pCurrentState = s; }
+	void SetPreviousState(State* s) { m_pPreviousState = s; }
+
 
 	//call this to update FSM i.e call current states execute
 	void Update() const

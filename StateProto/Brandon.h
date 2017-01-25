@@ -4,6 +4,7 @@
 #include "Locations.h"
 #include "StateMachine.h"
 #include "Consts.h"
+#include "BrandonOwnedStates.h"
 
 class Brandon :
 	public BaseObject
@@ -17,6 +18,7 @@ public:
 		//instantiate state machine with this brandon obj
 		m_pStateMachine = new StateMachine(this);
 		//set the starting state in the statemachine
+		m_pStateMachine->SetCurrentState(VisitBathroom::Instance());
 	}
 
 	//update method called everyframe to call the current state and its execute method

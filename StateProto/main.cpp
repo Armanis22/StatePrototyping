@@ -11,9 +11,10 @@ int main()
 
 	Brandon brandon;
 
-	for (int i = 0; i < 20; ++i)
+	for (int i = 0; i < 3; ++i)
 	{
-		Sleep(800);
+		brandon.Update();
+		Sleep(400);
 	}
 	while (!_kbhit()){}
 

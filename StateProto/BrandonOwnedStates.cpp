@@ -24,7 +24,8 @@ void EnterLivingRoomAndCode::Exit(Brandon * brandon)
 
 QuenchThirst * QuenchThirst::Instance()
 {
-	return nullptr;
+	static QuenchThirst instance;
+	return &instance;
 }
 
 void QuenchThirst::Enter(Brandon * brandon)
@@ -44,7 +45,8 @@ void QuenchThirst::Exit(Brandon * brandon)
 
 VisitBathroom * VisitBathroom::Instance()
 {
-	return nullptr;
+	static VisitBathroom instance;
+	return &instance;
 }
 
 void VisitBathroom::Enter(Brandon * brandon)
@@ -54,7 +56,7 @@ void VisitBathroom::Enter(Brandon * brandon)
 
 void VisitBathroom::Execute(Brandon * brandon)
 {
-	printf("execute\n");
+	printf("pissin\n");
 }
 
 void VisitBathroom::Exit(Brandon * brandon)
