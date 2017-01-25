@@ -10,7 +10,7 @@ EnterLivingRoomAndCode* EnterLivingRoomAndCode::Instance()
 
 void EnterLivingRoomAndCode::Enter(Brandon * brandon)
 {
-	if (!brandon->GetLocation() != LIVINGROOM)
+	if (brandon->GetLocation() != LIVINGROOM)
 	{
 		printf("Brandon: This code isnt going to write itself\n");
 		brandon->SetLocation(LIVINGROOM);
